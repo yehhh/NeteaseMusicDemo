@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/me/me",
+    "pages/search/search"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#BB2C08",
+    "navigationBarTitleText": "Music",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#aaa",
+    "selectedColor": "#fff",
+    "borderStyle": "black",
+    "backgroundColor": "#212121",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "image/cm2_btm_icn_discovery.png",
+        "selectedIconPath": "image/cm2_btm_icn_discovery_prs.png",
+        "text": "发现音乐"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "image/cm2_btm_icn_music.png",
+        "selectedIconPath": "image/cm2_btm_icn_music_prs.png",
+        "text": "我的音乐"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "debug": false,
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  }
+}

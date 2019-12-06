@@ -1,0 +1,32 @@
+#head {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+.tab {
+  backdrop-filter: blur(15px);
+}
+.tab > view {
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  flex: auto;
+}
+.tab > view > text {
+  font-size: 30rpx;
+  height: 70rpx;
+  display: inline-block;
+}
+.tab > navigator {
+  flex: 0 0 70rpx;
+  padding-top: 15rpx;
+}
+.tab .isTab {
+  color: #d33a31;
+  border-bottom: 1px solid #d33a31;
+}
+#main {
+  margin-top: 80rpx;
+}

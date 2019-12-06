@@ -1,0 +1,21 @@
+<view id="head" class="tab">
+  <view bindtab="switchtab">
+    <text class="{{tab==1?'isTab':''}}">个性推荐</text>
+  </view>
+  <view>
+    <text class="{{tab==2?'isTab':''}}">歌单</text>
+  </view>
+  <view>
+    <text class="{{tab==3?'isTab':''}}">主播电台</text>
+  </view>
+  <view>
+    <text class="{{tab==4?'isTab':''}}">排行榜</text>
+  </view>
+  <navigator url="../search/search">
+    <icon type="search" size="25" color="#666"></icon>
+  </navigator>
+</view>
+
+<view id="main">
+  main
+</view>
