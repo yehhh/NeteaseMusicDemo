@@ -30,3 +30,9 @@
 #main {
   margin-top: 80rpx;
 }
+#main .banner {
+  height: 300rpx;
+}
+#main .banner .bannerImage {
+  height: 300rpx;
+}

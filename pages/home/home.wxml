@@ -1,15 +1,15 @@
 <view id="head" class="tab">
   <view bindtab="switchtab">
-    <text class="{{tab==1?'isTab':''}}">个性推荐</text>
+    <text class="{{tab==1?'isTab':''}}" data-tab="1" bindtap="tapTab">个性推荐</text>
   </view>
   <view>
-    <text class="{{tab==2?'isTab':''}}">歌单</text>
+    <text class="{{tab==2?'isTab':''}}" data-tab="2" bindtap="tapTab">歌单</text>
   </view>
   <view>
-    <text class="{{tab==3?'isTab':''}}">主播电台</text>
+    <text class="{{tab==3?'isTab':''}}" data-tab="3" bindtap="tapTab">主播电台</text>
   </view>
   <view>
-    <text class="{{tab==4?'isTab':''}}">排行榜</text>
+    <text class="{{tab==4?'isTab':''}}" data-tab="4" bindtap="tapTab">排行榜</text>
   </view>
   <navigator url="../search/search">
     <icon type="search" size="25" color="#666"></icon>
@@ -17,5 +17,14 @@
 </view>
 
 <view id="main">
-  main
+  <view hidden="{{tab!=1}}">
+    <swiper indicator-dots="{{true}}" autoplay="{{true}}"
+            interval="{{3000}}" duration="{{500}}" class="banner">
+      <block wx:for="{{banner}}" wx:key="bannerId">
+        <swiper-item>
+          <image src="{{item.pic}}" mode="aspectFit" class="bannerImage"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
 </view>
