@@ -1,4 +1,6 @@
-const ip = 'http://127.0.0.1:3000/'
+const isDev = true
+
+const ip = isDev ? 'http://127.0.0.1:3000/' : 'http://bbhh.ltd:3000/'
 
 const http = (url, data = {}, method = 'get') => {
   return new Promise((resolve, reject) => {

@@ -17,14 +17,46 @@
 </view>
 
 <view id="main">
+
+  <!--个性推荐-->
   <view hidden="{{tab!=1}}">
+    <!--banner-->
     <swiper indicator-dots="{{true}}" autoplay="{{true}}"
-            interval="{{3000}}" duration="{{500}}" class="banner">
+            interval="{{10000}}" duration="{{500}}" circular="{{true}}"
+            class="banner">
       <block wx:for="{{banner}}" wx:key="bannerId">
         <swiper-item>
-          <image src="{{item.pic}}" mode="aspectFit" class="bannerImage"></image>
+          <image src="{{item.pic}}" mode="aspectFit" class="bannerImage" bindtap="tabTanner"
+                 data-url="{{item.url}}"></image>
         </swiper-item>
       </block>
     </swiper>
+    <!--导航-->
+    <view class="rec_nav">
+      <view>
+        <navigator url="../fm/index">
+          <view class="recn_ico">
+            <image src="../../image/cm2_discover_icn_fm-ip6@2x.png"></image>
+          </view>
+          私人FM
+        </navigator>
+      </view>
+      <view>
+        <navigator url="../recsongs/index">
+          <view class="recn_ico">{{thisday}}</view>
+          每日歌曲推荐
+        </navigator>
+      </view>
+      <view>
+        <navigator url="../playlist/index?pid=3778678">
+          <view class="recn_ico">
+            <image src="../../image/cm2_discover_icn_upbill-ip6@2x.png"></image>
+          </view>
+          云音乐热歌榜
+        </navigator>
+      </view>
+    </view>
+
   </view>
+
 </view>

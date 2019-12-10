@@ -28,11 +28,39 @@
   border-bottom: 1px solid #d33a31;
 }
 #main {
-  margin-top: 80rpx;
+  padding-top: 80rpx;
 }
 #main .banner {
   height: 300rpx;
 }
-#main .banner .bannerImage {
+#main .banner swiper-item > .bannerImage {
+  width: 100%;
   height: 300rpx;
+}
+#main .rec_nav {
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+#main .rec_nav > view {
+  flex: 1;
+}
+#main .rec_nav > view > navigator {
+  padding: 25rpx 0;
+  font-size: 26rpx;
+  text-align: center;
+}
+#main .rec_nav > view > navigator > .recn_ico {
+  margin: 2rpx auto 10rpx;
+  border: 1rpx solid #d33a31;
+  border-radius: 50%;
+  width: 112rpx;
+  height: 112rpx;
+  font-size: 56rpx;
+  color: #d33a31;
+  text-align: center;
+  line-height: 112rpx;
+}
+#main .rec_nav > view > navigator > .recn_ico > image {
+  width: 110rpx;
+  height: 110rpx;
 }

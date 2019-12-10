@@ -6,7 +6,8 @@ Page({
    */
   data: {
     tab: 1,
-    banner: []
+    banner: [],
+    thisday: new Date().getDate()
   },
 
   /**
@@ -33,5 +34,12 @@ Page({
       })
       .catch(err => {
       })
+  },
+  tabTanner: function (e) {
+    if (e.currentTarget.dataset.url) {
+      wx.navigateTo({
+        url: '../banner/banner?url=' + encodeURIComponent(e.currentTarget.dataset.url)
+      })
+    }
   }
 })
