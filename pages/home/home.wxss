@@ -5,8 +5,12 @@
   left: 0;
   display: flex;
 }
+/**
+tab
+ */
 .tab {
-  backdrop-filter: blur(15px);
+  background-color: #BB2C08;
+  z-index: 999;
 }
 .tab > view {
   text-align: center;
@@ -15,27 +19,72 @@
   flex: auto;
 }
 .tab > view > text {
-  font-size: 30rpx;
-  height: 70rpx;
+  color: #efefef;
+  font-size: 25rpx;
+  height: 60rpx;
   display: inline-block;
 }
 .tab > navigator {
   flex: 0 0 70rpx;
-  padding-top: 15rpx;
+  padding-top: 20rpx;
 }
 .tab .isTab {
-  color: #d33a31;
-  border-bottom: 1px solid #d33a31;
+  color: #fff;
+  border-bottom: 1px solid #fff;
 }
 #main {
   padding-top: 80rpx;
+  /**
+  banner
+   */
+  /**
+  loading
+   */
+  /**
+  导航
+   */
+  /**
+  歌单
+   */
 }
 #main .banner {
-  height: 300rpx;
+  height: 265rpx;
+}
+#main .banner swiper-item {
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  position: relative;
 }
 #main .banner swiper-item > .bannerImage {
   width: 100%;
-  height: 300rpx;
+  height: 100%;
+  border-radius: 10rpx;
+}
+#main .banner swiper-item::after {
+  content: '';
+  display: block;
+  background-color: #BB2C08;
+  height: 70%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+#main .album_loading {
+  text-align: center;
+  margin: 80rpx auto 0;
+  color: #999;
+  font-size: 28rpx;
+}
+#main .album_loading image {
+  margin: 0 auto 20rpx;
+  display: block;
+  width: 88rpx;
+  height: 88rpx;
+  border: 1rpx solid #999;
+  border-radius: 50%;
+  animation: circle 1.5s linear infinite;
 }
 #main .rec_nav {
   display: flex;
@@ -63,4 +112,92 @@
 #main .rec_nav > view > navigator > .recn_ico > image {
   width: 110rpx;
   height: 110rpx;
+}
+#main .sl-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  padding: 40rpx 20rpx 10rpx;
+}
+#main .sl-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+#main .sl-list > view {
+  width: 236rpx;
+  box-sizing: border-box;
+  margin: 10rpx 0 10rpx 10rpx;
+}
+#main .sl-list > view > navigator > .cover {
+  position: relative;
+}
+#main .sl-list > view > navigator > .cover > .music_cover {
+  width: 236rpx;
+  height: 236rpx;
+  border-radius: 10rpx;
+}
+#main .sl-list > view > navigator > .cover > .img_playcount {
+  position: absolute;
+  top: 0;
+  right: 10rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
+#main .sl-list > view > navigator > .cover > .img_playcount > image {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 5rpx;
+  vertical-align: middle;
+}
+#main .sl-list > view > navigator > .cover > .img_playcount > text {
+  vertical-align: middle;
+}
+#main .sl-list > view > navigator > .name {
+  font-size: 26rpx;
+  line-height: 1.4;
+  color: #666;
+}
+#main .sl-list > view > navigator > .tl_info {
+  font-size: 26rpx;
+}
+#main .sl-list > view > navigator > .tl_info > view:first-child {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+#main .sl-list > view > navigator > .tl_info > view:last-child {
+  font-size: 24rpx;
+  color: #999999;
+}
+#main .sl-list > view > navigator > .dj_info {
+  font-size: 24rpx;
+}
+#main .mv-list.sl-list > view {
+  width: 360rpx !important;
+}
+#main .mv-list.sl-list > view .music_cover {
+  width: 360rpx !important;
+}
+#main .mv-list.sl-list > view .img_playcount > image {
+  width: 28rpx !important;
+  height: 20rpx !important;
+}
+/**
+加载中动画
+ */
+@keyframes circle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

@@ -8,44 +8,88 @@
   display: flex;
 }
 
+/**
+tab
+ */
 .tab {
-  backdrop-filter: blur(15px);
+  //backdrop-filter: blur(15px);
+  background-color: #BB2C08;
+  z-index: 999;
   > view {
     text-align: center;
     height: ~'80rpx';
     line-height: ~'80rpx';
     flex: auto;
     > text {
-      font-size: ~'30rpx';
-      height: ~'70rpx';
+      color: #efefef;
+      font-size: ~'25rpx';
+      height: ~'60rpx';
       display: inline-block;
     }
   }
   > navigator {
     flex: 0 0 ~'70rpx';
-    padding-top: ~'15rpx';
+    padding-top: ~'20rpx';
   }
   .isTab {
-    color: @base-color;
-    border-bottom: 1px solid @base-color;
+    color: #fff;
+    border-bottom: 1px solid #fff;
   }
 }
 
 #main {
   padding-top: ~'80rpx';
 
+  /**
+  banner
+   */
   .banner {
-    height: ~'300rpx';
+    height: ~'265rpx';
     swiper-item {
+      box-sizing: border-box;
+      padding: 0 ~'30rpx';
+      position: relative;
       > .bannerImage {
-        //box-sizing: border-box;
-        //padding: 0 ~'30rpx';
         width: 100%;
-        height: ~'300rpx';
+        height: 100%;
+        border-radius: ~'10rpx';
+      }
+      &::after {
+        content: '';
+        display: block;
+        background-color: #BB2C08;
+        height: 70%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
       }
     }
   }
 
+  /**
+  loading
+   */
+  .album_loading {
+    text-align: center;
+    margin: ~'80rpx' auto 0;
+    color: #999;
+    font-size: ~'28rpx';
+    image {
+      margin: 0 auto ~'20rpx';
+      display: block;
+      width: ~'88rpx';
+      height: ~'88rpx';
+      border: ~'1rpx' solid #999;
+      border-radius: 50%;
+      animation: circle 1.5s linear infinite;
+    }
+  }
+
+  /**
+  导航
+   */
   .rec_nav {
     display: flex;
     border-bottom: 1px solid @border-color;
@@ -74,4 +118,104 @@
     }
   }
 
+  /**
+  歌单
+   */
+  .sl-title {
+    font-size: unit(30, rpx);
+    font-weight: bold;
+    padding: ~'40rpx' ~'20rpx' ~'10rpx';
+  }
+  .sl-list {
+    display: flex;
+    flex-wrap: wrap;
+    > view {
+      width: ~'236rpx';
+      box-sizing: border-box;
+      margin: ~'10rpx' 0 ~'10rpx' ~'10rpx';
+      > navigator {
+        > .cover {
+          position: relative;
+          > .music_cover {
+            width: ~'236rpx';
+            height: ~'236rpx';
+            border-radius: unit(10, rpx);
+          }
+          > .img_playcount {
+            position: absolute;
+            top: 0;
+            right: ~'10rpx';
+            font-size: ~'24rpx';
+            color: #fff;
+            > image {
+              width: ~'24rpx';
+              height: ~'24rpx';
+              margin-right: ~'5rpx';
+              vertical-align: middle;
+            }
+            > text {
+              vertical-align: middle;
+            }
+          }
+        }
+        > .name {
+          font-size: ~'26rpx';
+          line-height: 1.4;
+          color: #666
+        }
+        > .tl_info {
+          font-size: ~'26rpx';
+          > view:first-child {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+          > view:last-child {
+            font-size: unit(24, rpx);
+            color: #999999;
+          }
+        }
+        > .dj_info {
+          font-size: ~'24rpx';
+        }
+      }
+    }
+  }
+
+  .mv-list.sl-list {
+    > view {
+      width: ~'360rpx' !important;;
+      .music_cover {
+        width: ~'360rpx' !important;
+      }
+      .img_playcount {
+        > image {
+          width: ~'28rpx' !important;
+          height: ~'20rpx' !important;
+        }
+      }
+    }
+  }
+
+}
+
+/**
+加载中动画
+ */
+@keyframes circle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

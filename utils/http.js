@@ -1,8 +1,8 @@
-const isDev = true
+const isDev = false
 
-const ip = isDev ? 'http://127.0.0.1:3000/' : 'http://bbhh.ltd:3000/'
+const ip = isDev ? 'http://127.0.0.1:3000' : 'http://bbhh.ltd:3000'
 
-const http = (url, data = {}, method = 'get') => {
+function http(url, data = {}, method = 'get') {
   return new Promise((resolve, reject) => {
     wx.request({
       url: ip + url,
@@ -31,6 +31,11 @@ const http = (url, data = {}, method = 'get') => {
   })
 }
 
+function get(url, data) {
+  return http(url, data, 'get')
+}
+
 module.exports = {
-  http: http
+  http: http,
+  get: get
 }

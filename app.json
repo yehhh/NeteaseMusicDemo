@@ -3,7 +3,8 @@
     "pages/home/home",
     "pages/me/me",
     "pages/search/search",
-    "pages/banner/banner"
+    "pages/banner/banner",
+    "pages/playing/playing"
   ],
   "window": {
     "backgroundTextStyle": "light",

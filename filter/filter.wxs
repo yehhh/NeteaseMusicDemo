@@ -1,0 +1,23 @@
+/**
+ * 数目转万
+ */
+function tenThousand(num) {
+  num *= 1
+  if (num > 9999) {
+    return parseInt(num / 10000) + '万'
+  } else {
+    return num
+  }
+}
+
+/**
+ * 获取当前日期
+ */
+function currentDay() {
+  return getDate().getDate()
+}
+
+module.exports = {
+  tenThousand: tenThousand,
+  currentDay: currentDay
+}
