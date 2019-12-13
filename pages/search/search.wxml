@@ -1,2 +1,4 @@
-<!--pages/search/search.wxml-->
-<text>pages/search/search.wxml</text>
+<textarea placeholder="" bindinput="bindinput" maxlength="-1" auto-height style="min-height: 10em"/>
+<view class="btn-area">
+  <button bindtap="bindButtonTap">console</button>
+</view>

@@ -1,66 +1,82 @@
-// pages/playing/playing.js
+let http = require('../../utils/http.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    id: '',
+    url: '',
+    lyric: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      id: options.id || '1407599316'
+    })
+    this.getUrl()
+    this.getDetail()
+    this.getLyric()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
+  onReady: function (e) {
+    // 使用 wx.createAudioContext 获取 audio 上下文 context
+    this.audioCtx = wx.createAudioContext('myAudio')
   },
 
   /**
-   * 生命周期函数--监听页面显示
+   * 获取歌曲url
    */
-  onShow: function () {
-
+  getUrl: function () {
+    http.get('/song/url', {id: this.data.id})
+      .then(res => {
+        res.data && this.setData({
+          url: res.data[0].url
+        })
+      })
+  },
+  /**
+   * 获取歌曲详情
+   */
+  getDetail: function () {
+    http.get('/song/detail', {ids: this.data.id})
+      .then(res => {
+        this.setData({
+          detail: res.songs[0]
+        })
+      })
+  },
+  /**
+   * 获取歌词
+   */
+  getLyric: function () {
+    http.get('/lyric', {id: this.data.id})
+      .then(res => {
+        this.setData({
+          lyric: res.lrc.lyric
+        })
+      })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
 
+
+  audioPlay: function () {
+    this.audioCtx.play()
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  audioPause: function () {
+    this.audioCtx.pause()
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  audio14: function () {
+    this.audioCtx.seek(14)
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  audioStart: function () {
+    this.audioCtx.seek(0)
   }
 })

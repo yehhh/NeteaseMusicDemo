@@ -1,4 +1,4 @@
-const isDev = false
+const isDev = true
 
 const ip = isDev ? 'http://127.0.0.1:3000' : 'http://bbhh.ltd:3000'
 
@@ -22,6 +22,12 @@ function http(url, data = {}, method = 'get') {
         /**
          * 不知道什么时候才算失败
          */
+        console.warn(err)
+        wx.showToast({
+          title: '请求异常' + err.errMsg,
+          icon: 'none',
+          duration: 2000
+        })
         reject(err)
       },
       complete (response, statusCode, header) {

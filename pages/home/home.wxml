@@ -25,7 +25,7 @@
 
     <!--banner-->
     <swiper indicator-dots="{{true}}" autoplay="{{true}}"
-            interval="{{1000000}}" duration="{{500}}" circular="{{true}}"
+            interval="{{5000}}" duration="{{500}}" circular="{{true}}"
             class="banner">
       <block wx:for="{{banner}}" wx:key="bannerId">
         <swiper-item>
@@ -93,7 +93,7 @@
       </view>
       <view class="sl-list">
         <view wx:for="{{newsong}}" wx:key="id" wx:if="{{index<6}}">
-          <navigator>
+          <navigator url="../playing/playing?id={{item.id}}">
             <view class="cover">
               <image src="{{item.picUrl}}?param=200y200" class="music_cover"/>
             </view>
