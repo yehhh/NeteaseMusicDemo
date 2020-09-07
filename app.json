@@ -1,10 +1,12 @@
 {
+  "requiredBackgroundModes" : ["autio"],
   "pages": [
-    "pages/playing/playing",
     "pages/home/home",
+    "pages/playing/playing",
     "pages/me/me",
     "pages/search/search",
-    "pages/banner/banner"
+    "pages/banner/banner",
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

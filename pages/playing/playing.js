@@ -21,6 +21,16 @@ Page({
     this.getUrl()
     this.getDetail()
     this.getLyric()
+
+     //后台播放音乐
+     const backgroundAudioManager = wx.getBackgroundAudioManager()
+     backgroundAudioManager.title = '此时此刻'
+     backgroundAudioManager.epname = '此时此刻'
+     backgroundAudioManager.singer = '许巍'
+ 
+     backgroundAudioManager.coverImgUrl = 'http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000'
+     // 设置了 src 之后就会自动播放，若此处不设置src默认将为空字符串，当设置了src可以播放音乐
+     backgroundAudioManager.src = 'http://m801.music.126.net/20200428225332/b7a2e204340ff44851c8e5c647d6d40c/jdymusic/obj/w5zDlMODwrDDiGjCn8Ky/2271670289/c0b0/f3fe/1454/c885b45b4324c8a9d6f1e53b88c7e1fc.mp3' 
   },
 
   /**
@@ -29,6 +39,10 @@ Page({
   onReady: function (e) {
     // 使用 wx.createAudioContext 获取 audio 上下文 context
     this.audioCtx = wx.createAudioContext('myAudio')
+  },
+
+  onHide: function (){
+    console.log(1)
   },
 
   /**
